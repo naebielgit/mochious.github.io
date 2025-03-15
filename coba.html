@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochious.id - Camilan Jepang Premium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff3bce;
+            --secondary-color: #FFF0F5;
+            --accent-color: #FFC0CB;
+            --text-color: #4A4A4A;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            height: 70px;
+            padding: 0;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0;
+        }
+
+        .navbar-brand img {
+            height: 150px;
+            width: 150px;
+            object-fit: contain;
+        }
+
+        .navbar-nav {
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            padding: 0.5rem 0.8rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                        url('https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero-mascot {
+            position: absolute;
+            right: 50px;
+            bottom: 0;
+            width: 300px;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* Buttons */
+        .cta-button {
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #e60024;
+            border-color: #e60024;
+            transform: translateY(-2px);
+        }
+
+        /* Feature Section */
+        .feature-section {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            text-align: center;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Product Section */
+        .product-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-rating {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        /* WhatsApp Button */
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .cta-button {
+                margin: 0;
+            }
+            .hero-mascot {
+                width: 200px;
+                right: 20px;
+            }
+            .navbar {
+                height: auto;
+                padding: 10px 0;
+            }
+            .navbar-brand img {
+                height: 40px;
+            }
+            .navbar-nav {
+                height: auto;
+                padding: 10px 0;
+            }
+            .nav-link {
+                padding: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="Mochious.id Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#produk">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cara-pesan">Cara Pesan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="beranda">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Indah Dipandang, Enak Dimakan</h1>
+                <p class="hero-subtitle">Nikmati kelezatan Mochi Premium, Sushi Fusion, dan Dimsum Mentai Keju Lumer</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/6281234567890" class="btn btn-primary cta-button">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </a>
+                    <a href="#produk" class="btn btn-outline-primary cta-button">
+                        <i class="fas fa-utensils"></i> Lihat Menu
+                    </a>
+                </div>
+            </div>
+        </div>
+        <img src="images/Maskot.png" alt="Mochious Mascot" class="hero-mascot">
+    </section>
+
+    <!-- Feature Section -->
+    <section class="feature-section" id="keunggulan">
+        <div class="container">
+            <h2 class="text-center mb-5">Keunggulan Kami</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Bahan Premium</h3>
+                        <p>Menggunakan bahan berkualitas tanpa pengawet</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Varian Beragam</h3>
+                        <p>Pilihan rasa yang memanjakan selera</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Produk Unik</h3>
+                        <p>Dimsum Mentai Keju & Sushi Fusion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section" id="produk">
+        <div class="container">
+            <h2 class="text-center mb-5">Produk Unggulan</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                             class="product-image w-100" alt="Mochius">
+                        <div class="product-info">
+                            <h4 class="product-title">Mochius</h4>
+                            <p class="product-price">Rp 7.000/pcs</p>
+                            <a href="https://wa.me/6281234567890" class="btn btn-primary w-100">
+                                <i class="fab fa-whatsapp"></i> Pesan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                             class="product-image w-100" alt="Dimsum Mentai">
+                        <div class="product-info">
+                            <h4 class="product-title">Dimsum Mentai Keju</h4>
+                            <p class="product-price">Mulai Rp 15.000</p>
+                            <a href="https://wa.me/6281234567890" class="btn btn-primary w-100">
+                                <i class="fab fa-whatsapp"></i> Pesan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                             class="product-image w-100" alt="Sushious">
+                        <div class="product-info">
+                            <h4 class="product-title">Sushious</h4>
+                            <p class="product-price">Rp 3.000/pcs</p>
+                            <a href="https://wa.me/6281234567890" class="btn btn-primary w-100">
+                                <i class="fab fa-whatsapp"></i> Pesan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Testimoni Pelanggan</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Mochi-nya kenyal banget dan rasanya enak! Recommended!"</p>
+                        <h5>- Sarah, Jakarta</h5>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Dimsum mentai kejunya lumer banget! Worth it!"</p>
+                        <h5>- Budi, Bandung</h5>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Sushious-nya unik dan enak! Sudah langganan!"</p>
+                        <h5>- Maya, Surabaya</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281234567890" class="floating-button">
+        <div class="whatsapp-button">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="footer-title">Mochious.id</h5>
+                    <p>Camilan Jepang Premium dengan Sentuhan Inovatif</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Kontak</h5>
+                    <p><i class="fab fa-whatsapp me-2"></i> 0812-3456-7890</p>
+                    <p><i class="fas fa-envelope me-2"></i> mochious.id@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Ikuti Kami</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-shopee"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="mb-0">&copy; 2024 Mochious.id. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
